@@ -1,0 +1,16 @@
+{
+    "name": "kislitcyn/kislitcyn",
+    "description": "Дипломный проект по профессии <Веб-разработчик>",
+    "autoload": {
+        "psr-4": {
+            "Kislitcyn\\Kislitcyn\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "umniknik",
+            "email": "kaaaaaljan@mail.ru"
+        }
+    ],
+    "require": {}
+}
