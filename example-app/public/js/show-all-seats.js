@@ -30,10 +30,8 @@ function displaySeats() {
         const htmlRows = document.createElement('div');
         htmlRows.classList.add('conf-step__row');
         for (let j = 0; j < seatsFromInput; j++) {
-            // console.log('ряд', i, 'место', j, 'номер', seatNumberInArray);
             const htmlSeat = document.createElement('div');
             htmlSeat.classList.add('conf-step__chair', 'conf-step__chair_standart');
-            // htmlSeat.setAttribute('data-seat-id', seats[seatNumberInArray]['id']);  //добавляем атрибут data с id места в таблице мест
             htmlSeat.setAttribute('data-seat-number', seatNumberInArray);  //добавляем атрибут data с id места в таблице мест, чтобы потом менять в тип и соответсвующего места, т.к. у нового места ещё может не быть id
 
             htmlSeat.addEventListener('click', changeTypeOfSeat);   //вешаем слушатель, при клике будет запускаться функция смены цвета (типа) места
@@ -56,10 +54,8 @@ function displaySeats() {
         //Вставляем массив всех мест в скрытое поле input, чтобы потом отправить на сервер после кнопки submit
         fillInInput(arraySeats);
 
-        //console.log (arraySeats);
         seatsElements.appendChild(htmlRows);
     }
-
 }
 
 //Функция заполнения невилимого поля input массиво всех мест, чтобы потом отправить на сервер после кнопки submit
@@ -95,7 +91,6 @@ function displaySeatsFromDatabase(seats) {
         const htmlRows = document.createElement('div');
         htmlRows.classList.add('conf-step__row');
         for (let j = 0; j < seats_per_row; j++) {
-            //console.log('ряд', i, 'место', j, 'номер', seatNumberInArray);
             const htmlSeat = document.createElement('div');
 
             let type;
@@ -111,15 +106,12 @@ function displaySeatsFromDatabase(seats) {
                     break;
             }
 
-
             htmlSeat.classList.add('conf-step__chair', type);
             htmlSeat.setAttribute('data-seat-id', seats[seatNumberInArray]['id']);  //добавляем атрибут data с id места в таблице мест
             htmlSeat.setAttribute('data-seat-number', seatNumberInArray);  //добавляем атрибут data с id места в таблице мест, чтобы потом менять в тип и соответсвующего места, т.к. у нового места ещё может не быть id
 
-
             htmlSeat.addEventListener('click', changeTypeOfSeat);   //вешаем слушатель, при клике будет запускаться функция смены цвета (типа) места
-            htmlRows.appendChild(htmlSeat);
-            // console.log(seats[i][j]);
+            htmlRows.appendChild(htmlSeat);            
 
             //Формируем массив мест для отправки в базу данных
             arraySeats.push({
@@ -133,7 +125,6 @@ function displaySeatsFromDatabase(seats) {
 
             seatNumberInArray++;   //берем слудующее кресло из массива            
         }
-
         //Вставляем массив всех мест в скрытое поле input, чтобы потом отправить на сервер после кнопки submit
         fillInInput(arraySeats);
 
@@ -143,8 +134,6 @@ function displaySeatsFromDatabase(seats) {
 
 //функция изменения типа места в зале после клика по месту
 function changeTypeOfSeat(event) {
-    //возьмем массив мест в формате json, который храниться в скрытов input arraySeats что бы затем ззменяем тип места в массиве
-    //const inputArraySeats = document.getElementById('arraySeats');
     //Полкчаем номер кликнутой ячейки
     const number = event.target.dataset['seatNumber'];
 
@@ -162,19 +151,6 @@ function changeTypeOfSeat(event) {
         htmlSeats.classList.replace('conf-step__chair_disabled', 'conf-step__chair_standart');
         document.getElementById('arraySeats').value = document.getElementById('arraySeats').value.replace(`:${number},"type":"blocked"`, `:${number},"type":"regular"`);
     }
-
-    //
-    let inputArraySeats = document.getElementById('arraySeats').value;
-    console.log(inputArraySeats);
-
-
-    // console.log(inputArraySeats);
-    //const number = event.target.dataset['seatNumber'];
-    // document.getElementById('arraySeats').value = document.getElementById('arraySeats').value.replace(`:${number},"type":"regular"`, `:${number},"type":"vip"`);
-    // console.log(inputArraySeats);
-    // console.log(event.target.dataset['seatNumber']);
-    // Изменяем первый элемент массива
-    //inputArraySeats.value[number].type = 'vip';
 }
 
 // функция получения списка всех мест выбранного зала из баззы данных 
@@ -193,7 +169,6 @@ async function getSeatsByHallId(idHall) {
 const buttonsHall = Array.from(document.getElementsByClassName('conf-step__radio'));
 buttonsHall.forEach(element => {
     element.addEventListener('click', (event) => {
-        //  console.log(event.target.value);
         const idHall = event.target.value;
         checkSeatInHall(idHall);
     });
@@ -209,16 +184,11 @@ async function checkSeatInHall(idHall) {
         //Проверяем есть ли места в зале, если есть то отрисовываем их
         if (allSeatsFromDatabase.length != 0) {
             console.log(allSeatsFromDatabase);
-            //Очишаем поле если там были места от другого зала
-
-            //    seatsElements.innerHTML = ''; //очищаем поле место на странице куда будем вставлять код отображения сидений
-            //теперь нужна логикак есть в зале есть места то заполняем поля инпут и отрисовываем их, если нет то
+            //есть в зале есть места то заполняем поля инпут и отрисовываем их, если нет то
             displaySeatsFromDatabase(allSeatsFromDatabase);
-
         } else {
             seatsElements.innerHTML = ''; //очищаем поле место на странице куда будем вставлять код отображения сидений
         }
-        // console.log(allSeatsFromDatabase);
     } catch (error) {
         console.error('Ошибка при получении данных:', error);
     }
