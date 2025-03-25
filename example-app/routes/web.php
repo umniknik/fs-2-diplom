@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HallController;
 use App\Http\Controllers\SeatController;
+use App\Http\Controllers\PricesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -38,3 +39,9 @@ Route::post('create-seats', [SeatController::class, 'createSeats']);
 
 //Маршрут получаения всех мест в зале по id зала
 Route::get('/api/halls/{hallId}/seats', [App\Http\Controllers\SeatController::class, 'getSeatsByHallId']);
+
+//Маршрут для создания новых записей цен на места
+Route::post('create-prices', [PricesController::class, 'createPrices']);
+
+//Маршрут получаения всех цен на места в зале по id зала
+Route::get('/api/halls/{hallId}/prices', [App\Http\Controllers\PricesController::class, 'getPricesByHallId']);
