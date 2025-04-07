@@ -5,18 +5,8 @@
     <div class="conf-step__wrapper">
         <p class="conf-step__paragraph">Доступные залы:</p>
 
-        <ul class="conf-step__list">
-            <!-- Отображение всех залов из таблицы -->
-            @foreach($halls as $hall)
-                <li>
-                    <form action="/delete-hall/{{ $hall->id }}" method="POST">
-                        {{$hall->name}}
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="conf-step__button conf-step__button-trash"></button>
-                    </form>
-                </li>
-            @endforeach
+        <ul class="conf-step__list" id="hall-list-management">
+
         </ul>
         <!-- форма для отправки запроса на создания зала в таблице залов медотом post -->
         <form action="/create-hall" method="POST">
@@ -25,3 +15,5 @@
         </form>
     </div>
 </section>
+
+<script src="{{ asset('js/hall_management.js') }}"></script>

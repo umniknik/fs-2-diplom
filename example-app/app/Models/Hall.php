@@ -20,4 +20,9 @@ class Hall extends Model
       return $this->hasMany(Seat::class);
    }
 
+   public function sessions()
+   {
+      return $this->hasMany(Session::class); // один зал может иметь несколько сеансов
+   }
+
 }

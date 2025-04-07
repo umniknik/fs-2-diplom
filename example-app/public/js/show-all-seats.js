@@ -183,7 +183,7 @@ async function checkSeatInHall(idHall) {
 
         //Проверяем есть ли места в зале, если есть то отрисовываем их
         if (allSeatsFromDatabase.length != 0) {
-            console.log(allSeatsFromDatabase);
+          //  console.log(allSeatsFromDatabase);
             //есть в зале есть места то заполняем поля инпут и отрисовываем их, если нет то
             displaySeatsFromDatabase(allSeatsFromDatabase);
         } else {

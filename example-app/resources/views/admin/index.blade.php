@@ -35,7 +35,11 @@
   <!-- Подключаем 3 блок "Конфигурация цен" -->
   @include('admin.configuration_of_prices');
 
-    <section class="conf-step">
+  <!-- Подключаем 4 блок "Сетка сеансов" -->
+  @include('admin.configuration_of_sessions');
+
+
+    <!-- <section class="conf-step">
       <header class="conf-step__header conf-step__header_opened">
         <h2 class="conf-step__title">Сетка сеансов</h2>
       </header>
@@ -117,7 +121,7 @@
           <input type="submit" value="Сохранить" class="conf-step__button conf-step__button-accent">
         </fieldset>
       </div>
-    </section>
+    </section> -->
 
     <section class="conf-step">
       <header class="conf-step__header conf-step__header_opened">

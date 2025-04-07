@@ -30,7 +30,7 @@ $gapwidth: 20px;
   }
 
   100% {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0,0,0,0.7);
   }
 }
 
@@ -47,7 +47,7 @@ html {
 }
 
 body {
-  background-image: url('/i/admin/background.jpg');
+  background-image: url('../i/background.jpg');
   background-color: rgba(0, 0, 0, 0.50);
   background-blend-mode: multiply;
   background-size: cover;
@@ -55,11 +55,7 @@ body {
   counter-reset: num;
 }
 
-input[type='radio'],
-input[type='submit'],
-button,
-.conf-step__header,
-select {
+input[type='radio'], input[type='submit'], button, .conf-step__header, select {
   cursor: pointer;
 }
 
@@ -67,42 +63,39 @@ select {
   text-align: center;
 }
 
-.conf-steps,
-.page-header {
+.conf-steps, .page-header {
   width: 972px;
   margin: 0 auto;
 }
 
-.conf-step__wrapper,
-.conf-step__header,
-.page-header {
+.conf-step__wrapper, .conf-step__header, .page-header {
   padding: 35px $colwidth 35px (2 * $colwidth + $gapwidth);
 }
 
 .page-header {
   color: $white;
   text-transform: uppercase;
-
+  
   .page-header__title {
     margin: 0;
     font-weight: 900;
     font-size: 3.4rem;
-
+    
     span {
       font-weight: 100;
     }
   }
-
+  
   .page-header__subtitle {
     font-size: 1rem;
     letter-spacing: 0.46em;
-  }
+  } 
 }
 
 .conf-step {
   position: relative;
   background-color: rgba(234, 233, 235, 0.95);
-
+  
   &::before {
     content: '';
     position: absolute;
@@ -110,17 +103,17 @@ select {
     margin-left: -1px;
     top: 0;
     bottom: 0;
-    display: block;
+    display: block;    
     width: 2px;
     background-color: $lightlilac;
-  }
+  }  
 }
 
-.conf-step__header_opened+.conf-step__wrapper {
+.conf-step__header_opened + .conf-step__wrapper {
   display: block;
 }
 
-.conf-step__header_closed+.conf-step__wrapper {
+.conf-step__header_closed + .conf-step__wrapper {
   display: none;
 }
 
@@ -135,8 +128,8 @@ select {
   color: $white;
   transition-property: all;
   transition-duration: .6s;
-  transition-timing-function: ease;
-
+  transition-timing-function: ease;  
+  
   &::before {
     content: '';
     position: absolute;
@@ -144,11 +137,11 @@ select {
     margin-left: -1px;
     top: 0;
     bottom: 0;
-    display: block;
+    display: block;    
     width: 2px;
     background-color: $lightlilac;
   }
-
+  
   &::after {
     content: '';
     position: absolute;
@@ -157,15 +150,15 @@ select {
     right: $colwidth;
     width: 24px;
     height: 16px;
-    background-image: url('/i/admin/switch.png');
+    background-image: url('../i/switch.png');
     background-size: 24px 16px;
   }
-
+  
   &:hover,
   &:focus {
     background-color: #89639e;
-  }
-
+  }  
+  
   .conf-step__title {
     font-size: 2.2rem;
     font-weight: 700;
@@ -173,15 +166,15 @@ select {
     counter-increment: num;
     transition-property: all;
     transition-duration: .6s;
-    transition-timing-function: ease;
-
+    transition-timing-function: ease;    
+    
     &::before {
       content: counter(num);
       position: absolute;
       display: block;
       left: $colwidth + $gapwidth;
       top: 50%;
-      margin-left: -22px;
+      margin-left: -22px;      
       margin-top: -22px;
       width: 44px;
       height: 44px;
@@ -196,7 +189,7 @@ select {
       letter-spacing: normal;
     }
   }
-
+    
 }
 
 .conf-step__header:hover {
@@ -205,7 +198,7 @@ select {
     transition-property: all;
     transition-duration: .6s;
     transition-timing-function: ease;
-
+    
     &::before {
       letter-spacing: normal;
     }
@@ -215,16 +208,16 @@ select {
 .conf-step:first-of-type .conf-step__header {
   &::before {
     top: 50%;
-  }
+  }  
 }
 
 .conf-step:last-of-type {
   .conf-step__header {
     &::before {
       bottom: 50%;
-    }
+    }  
   }
-
+  
   &::before {
     display: none;
   }
@@ -247,25 +240,24 @@ select {
   text-transform: uppercase;
   font-weight: 500;
   margin: 14px 0 5px 25px;
-
+  
   li {
     position: relative;
   }
-
-  li+li {
+  
+  li + li {
     margin-top: 10px;
   }
-
+  
   li::before {
     content: '–';
     position: absolute;
     left: -14px;
   }
-
+  
 }
 
-.conf-step__button,
-.login__button {
+.conf-step__button, .login__button {
   box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.24), 0px 0px 3px rgba(0, 0, 0, 0.12);
   border-radius: 3px;
   border: none;
@@ -275,14 +267,14 @@ select {
   font-size: 1.4rem;
   transition-property: background-color;
   transition-duration: .5s;
-  transition-timing-function: ease;
-
+  transition-timing-function: ease;   
+  
   &:hover,
-  &:focus {
+  &:focus{
     background-color: #EEEAF1;
-    outline: none;
+    outline: none;  
   }
-
+  
   &:active {
     position: relative;
     top: 2px;
@@ -290,11 +282,11 @@ select {
     color: $white;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
   }
-
-  &+& {
+  
+  & + & {
     margin-left: 12px;
   }
-
+  
 }
 
 .conf-step__buttons {
@@ -307,27 +299,26 @@ select {
   margin-top: 17px;
 }
 
-.conf-step__button.conf-step__button-accent,
-.login__button {
+.conf-step__button.conf-step__button-accent, .login__button {
   color: $white;
   background-color: $green;
   padding: 12px 32px;
   margin-top: 17px;
-
+  
   &:hover,
-  &:focus {
+  &:focus{
     background-color: #2FC9D2;
     outline: none;
   }
-
+  
   &:active {
     position: relative;
     top: 2px;
     background-color: #146C72;
     color: $white;
     box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.75);
-  }
-
+  }  
+  
 }
 
 .conf-step__button-trash {
@@ -335,7 +326,7 @@ select {
   width: 20px;
   height: 20px;
   vertical-align: text-top;
-
+  
   &::before {
     content: '';
     position: absolute;
@@ -343,40 +334,39 @@ select {
     left: 4px;
     width: 12px;
     height: 12px;
-    background-image: url('/i/admin/trash-sprite.png');
+    background-image: url('../i/trash-sprite.png');
     background-position: 0 0;
     background-size: 24px 12px;
     background-repeat: no-repeat;
-  }
-
+  } 
+  
   &:active::before {
     background-position: -12px 0;
-  }
+  } 
 }
 
 .conf-step__legend {
   color: $grey;
   font-size: 1.4rem;
   margin-bottom: 12px;
-
+  
   .multiplier {
     font-family: monospace;
     font-size: 18px;
     padding: 0 10px;
   }
-
+  
   .conf-step__chair:not(:first-of-type) {
     margin-left: 20px;
-  }
-
+  }  
+  
 }
 
 .conf-step__hint {
   margin-top: 10px;
 }
 
-.conf-step__label,
-.login__label {
+.conf-step__label, .login__label {
   display: inline-block;
   font-size: 1.2rem;
   color: $grey;
@@ -389,14 +379,13 @@ select {
   :last-of-type {
     margin-bottom: 0;
   }
-
+    
   .conf-step__input {
     width: 100%;
   }
 }
 
-.conf-step__input,
-.login__input {
+.conf-step__input, .login__input {
   display: block;
   width: 100px;
   margin-top: 1px;
@@ -432,7 +421,7 @@ select {
 .conf-step__chair_vip {
   border-color: #0a828a;
   background-color: #b0d6d8;
-  background-image: url('/i/admin/green-pattern.png');
+  background-image: url('../i/green-pattern.png');
   background-repeat: repeat;
 }
 
@@ -445,13 +434,13 @@ select {
   font-size: 0;
   list-style: none;
   margin-bottom: 15px;
-
+  
   li {
     position: relative;
     display: inline-block;
     font-size: 1.2rem;
-  }
-
+  }  
+  
   .conf-step__radio {
     position: absolute;
     top: 0;
@@ -462,8 +451,8 @@ select {
     width: 80px;
     height: 42px;
     opacity: 0;
-  }
-
+  }  
+  
   .conf-step__selector {
     position: relative;
     display: block;
@@ -478,10 +467,10 @@ select {
     transition-property: background-color;
     transition-duration: .5s;
     transition-timing-function: ease;
-    z-index: 5;
+    z-index: 5;  
   }
-
-  .conf-step__radio:checked+.conf-step__selector {
+  
+  .conf-step__radio:checked + .conf-step__selector {
     background-color: $white;
     box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.24), 0px 2px 2px rgba(0, 0, 0, 0.24), 0px 0px 2px rgba(0, 0, 0, 0.12);
     transform: scale(1.1);
@@ -489,10 +478,10 @@ select {
     font-size: 1.4rem;
     z-index: 10;
   }
-
-  .conf-step__radio:hover+.conf-step__selector {
+  
+  .conf-step__radio:hover + .conf-step__selector {
     background-color: rgba(255, 255, 255, 0.90);
-  }
+  }   
 }
 
 .conf-step__hall {
@@ -500,7 +489,7 @@ select {
   padding: 62px 32px 34px;
   border: 2px solid #000000;
   text-align: center;
-
+  
   &::before {
     content: ' экран';
     position: absolute;
@@ -511,26 +500,26 @@ select {
     letter-spacing: 1.2em;
     text-transform: uppercase;
   }
-
+  
   .conf-step__chair {
     cursor: pointer;
   }
-
+  
   .conf-step__hall-wrapper {
     display: inline-block;
-
+    
     .conf-step__row {
       font-size: 0;
     }
-
-    .conf-step__row+.conf-step__row {
+    
+    .conf-step__row + .conf-step__row {
       margin-top: 10px;
     }
-
-    .conf-step__chair+.conf-step__chair {
+    
+    .conf-step__chair + .conf-step__chair{
       margin-left: 10px;
     }
-
+    
   }
 }
 
@@ -538,7 +527,7 @@ select {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
-
+  
   .conf-step__movie {
     position: relative;
     width: calc((100% - 30px) / 3);
@@ -548,24 +537,24 @@ select {
     border: 1px solid rgba(0, 0, 0, 0.3);
     box-sizing: border-box;
     cursor: pointer;
-
-
+    
+    
     &:nth-of-type(3n + 2) {
       margin: 0 15px;
     }
-
+    
     &:nth-of-type(n + 4) {
       margin-top: 15px;
     }
-
+    
     @for $i from 1 to $colors {
       &:nth-of-type(#{$i}) {
-        background-color: adjust-hue($startyellow, $i * $degrees);
+        background-color:adjust-hue($startyellow, $i * $degrees);
       }
-    }
-
+    }    
+    
   }
-
+  
   .conf-step__movie-poster {
     position: absolute;
     top: 0;
@@ -573,12 +562,12 @@ select {
     width: 38px;
     height: 50px;
   }
-
+  
   .conf-step__movie-title {
     font-weight: 500;
     font-size: 1.4rem;
   }
-
+  
   .conf-step__movie-duration {
     font-size: 1.4rem;
     color: rgba(0, 0, 0, 0.7);
@@ -610,13 +599,13 @@ select {
   border: 1px solid rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
   padding: 10px 2px 10px 10px;
-
+  
   .conf-step__seances-movie-title {
     overflow: hidden;
     line-height: 10px;
     height: 100%;
   }
-
+  
   .conf-step__seances-movie-start {
     position: absolute;
     bottom: -33px;
@@ -624,7 +613,7 @@ select {
     color: $grey;
     font-size: 1.2rem;
   }
-
+  
   &::before {
     content: '';
     position: absolute;
@@ -635,7 +624,7 @@ select {
     left: 0;
     background-color: $grey;
   }
-
+  
 }
 
 .login {
@@ -681,19 +670,12 @@ select {
 }
 
 .popup {
-  // display: none;
-  // position: fixed;
-  // width: 100%;
-  // height: 100%;
-  // z-index: 100;
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9999;
-
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  
   &__title {
     font-size: 2.2rem;
     font-weight: 700;
@@ -701,15 +683,10 @@ select {
   }
 
   &.active {
-    // display: block;
+    display: block;
 
-    // background: rgba(0, 0, 0, 0.7);
-    // animation: 0.5s ease-out 0s 1 darken;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.7);  
+    animation: 0.5s ease-out 0s 1 darken;
 
     .popup__content {
       top: 100px;
@@ -719,11 +696,7 @@ select {
 
   &__container {
     position: relative;
-    width: 90%; /* Ограничиваем ширину попапа */
-    max-width: 800px; /* Максимальная ширина для больших экранов */
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    width: 100%;
   }
 
   &__content {
